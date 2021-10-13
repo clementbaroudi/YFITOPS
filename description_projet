@@ -1,0 +1,14 @@
+Trouver des musiques par rapport au nombre d'amis qui aiment ces musiques
+( + ajouter les genres?)
+il faut :
+- un arbre de relations entre des utilisateurs ( chaque utilisateur peut être relié à un ou plusieurs autres utilisateurs) -> d'après PFR, il faudrait 1 million d'utilisaturs pour que l'utilisation des connexions en parallèle soit justifiée
+- une liste de musiques ( une musique peut ere attribuée à un ou plusieurs utilisateurs - voire 0) -> il faut beaucoup de musiques aussi
+
+classe utilisateur:
+- string nom
+- tableau de taille random avec les musiques qu'il aime
+-tableau de taille random avec les personnes à qui il est relié
+-meth
+
+fichier txt musique avec une liste de musiques
+fichier graph reseau social
