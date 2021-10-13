@@ -64,4 +64,6 @@ Main.go :
    recherche_musique(string filtre_recherche) : # filtre_recherche vaut artiste, genre, album ou None  
     #parcours toutes les relations et cherche la musique avec la quelle on est le plus "proche" en terme de nb de relations -> au début il propose que les musiques de nos amis directs
     - plusieurs cas en fonction du filtre 
-    - appel à go routine pour chaque branche et sous-branche du graph du réseau 
+    - appel à go routine pour chaque branche et sous-branche du graph du réseau pour aller plus vite
+    - boucle qui associe à cahque musique un int distance 
+    
