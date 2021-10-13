@@ -1,14 +1,41 @@
 Trouver des musiques par rapport au nombre d'amis qui aiment ces musiques
 ( + ajouter les genres?)
+
 il faut :
 - un arbre de relations entre des utilisateurs ( chaque utilisateur peut être relié à un ou plusieurs autres utilisateurs) -> d'après PFR, il faudrait 1 million d'utilisaturs pour que l'utilisation des connexions en parallèle soit justifiée
 - une liste de musiques ( une musique peut ere attribuée à un ou plusieurs utilisateurs - voire 0) -> il faut beaucoup de musiques aussi
 
-classe utilisateur:
+
+
+fichier txt musique avec une liste de musiques
+
+2 alternatives pour les utilisateurs: 
+
+ 1 / fichier graph reseau social :
+matrice avec en colonne et en ligne les utilisateurs ( num d'utilisateur en 7 chiffres) et des 0 ou des 1 pour représenter les relations
+ex:
+ _     0000000 0000001 0000002
+0000000   0      1    0
+0000001     0      0    1 
+0000002      1     1    1
+-> la matrice est diagonalemant symetrique si les relations sont reciproques
+
+
+2/ classe utilisateur:
 - string nom
 - tableau de taille random avec les musiques qu'il aime
 -tableau de taille random avec les personnes à qui il est relié
--meth
 
-fichier txt musique avec une liste de musiques
-fichier graph reseau social
+
+
+Notre espace de travail : 
+SCRIPT :
+  generer_utilisateurs.sh pour créer le fichier utilisateurs.txt dans l'espace commun Sudoku-Solver
+  generer_musiques.sh pour créer le fichier musiques.txt dans l'espace commun Sudoku-Solver
+  
+SRC :
+  Main.go
+  
+  
+Main.go :
+  
