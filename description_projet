@@ -1,5 +1,5 @@
 Trouver des musiques par rapport au nombre d'amis qui aiment ces musiques
-( + ajouter les genres?)
+ajouter les genres + artistes + albums-> l'utilisateur peut faire une recherche dans un genre précis
 
 il faut :
 - un arbre de relations entre des utilisateurs ( chaque utilisateur peut être relié à un ou plusieurs autres utilisateurs) -> d'après PFR, il faudrait 1 million d'utilisaturs pour que l'utilisation des connexions en parallèle soit justifiée
@@ -7,11 +7,14 @@ il faut :
 
 
 
-fichier txt musique avec une liste de musiques
+ / fichier musique avec une liste de musiques:
+ titre album artiste  genre \n
+ titre album artiste  genre \n
+ 
+  *si on a le temps : chaque musique est associée à un lien vers la vidéo youtube -> récupérer 5000000 musiques sur le compte vevo par ex )
 
-2 alternatives pour les utilisateurs: 
 
- 1 / fichier graph reseau social :
+/ fichier graph reseau social :
 matrice avec en colonne et en ligne les utilisateurs ( num d'utilisateur en 7 chiffres) et des 0 ou des 1 pour représenter les relations
 ex:
  _     0000000 0000001 0000002
@@ -20,12 +23,9 @@ ex:
 0000002      1     1    1
 -> la matrice est diagonalemant symetrique si les relations sont reciproques
 
-
-2/ classe utilisateur:
-- string nom
-- tableau de taille random avec les musiques qu'il aime
--tableau de taille random avec les personnes à qui il est relié
-
+/ fichier utilisateur avec la liste des musiques qu'il aime:
+0000000 titre.artiste titre.artiste titre.artiste / 000001 titre.artiste titre.artiste titre.artiste titre.artiste
+ ce fichier sera modifié en continu avec les musiques déjà proposées à l'utilisateur
 
 
 Notre espace de travail : 
@@ -38,4 +38,30 @@ SRC :
   
   
 Main.go :
+  classe utilisateur:
+     int num_utilisateur = int(7)
+     list list_music = {(string titre, string artiste, string album, string genre), (),...}  # liste qui lit le doc txt utilisateur et remplit la liste 
+     string genre  # genre préféré de l'utilisateur, se modifie avec les nouvelles musiques écoutées
   
+     methodes:
+      sort_liste (): # trie la liste en fonction du genre : le genre le plus écouté est en premier etc
+       return liste_triee
+   
+
+
+ méthodes main :
+   interface():
+    -demande le num d'utilisateur
+    -demande si il veut un artiste, genre, précis
+    -en fonction de sa réponse parcours ses relations dans le fichier graph_reseau_social.txt pour trouver la musique la plus proche 
+        -> appel à recherche_musique
+        -> si il veut un genre précis on recherchera que parmi les musiques de ce genre là
+    - lui propose la musique 
+    - il dit si il aime ou pas 
+    - si oui la musique est ajoutée dans sa liste de musiques et le fichier utilisateurs.txt est modifié : la musiqe est ajoutée à la fin de sa ligne
+    
+    
+   recherche_musique(string filtre_recherche) : # filtre_recherche vaut artiste, genre, album ou None  
+    #parcours toutes les relations et cherche la musique avec la quelle on est le plus "proche" en terme de nb de relations -> au début il propose que les musiques de nos amis directs
+    - plusieurs cas en fonction du filtre 
+    - appel à go routine pour chaque branche et sous-branche du graph du réseau 
