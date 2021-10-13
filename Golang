@@ -1,0 +1,17 @@
+Les goroutines
+
+  --> read : https://devopssec.fr/article/goroutines-golang 
+
+  Comment gérer le nombre de goroutines qui s'accumulent : 
+  voir code PFR, compteur de de problèmes à resoudre dans le main, puis lancer les goroutines (une dizaine dans son exemple, a chaques fois qu'une goroutines a fini de travailler,
+  elle le signale, tant que le nombre de goroutines finies n'est pas égal au nombre de problèmes à résoudre, continuer.
+  Attention, il faut créer les goroutines (les travailleuses) avant de lister les canaux de problèmes à résoudre.
+  
+  Verifier la doc pour savoir si nos variables sont manipulables par plusieurs goroutines (sinon bug)
+  passer de linfo d'une goroutine à une autre : canaux
+  bien être au clair sur l'ordre de déroulement de nos travaux, sinon deadlock
+  
+  
+Fichiers textes
+
+  --> read : https://devopssec.fr/article/lire-et-ecrire-dans-un-fichier-golang
