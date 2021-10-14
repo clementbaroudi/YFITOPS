@@ -3,13 +3,13 @@ import {
   "container/list"
 }
 
-type Utilisateur struct(){
+type Utilisateur struct{
   num_utilisateur int 
   list_music list
   genre_fav string 
 }
 
-type Music struct() {
+type Music struct {
   titre string 
   album string
   artiste string
