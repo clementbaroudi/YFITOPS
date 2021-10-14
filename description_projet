@@ -38,16 +38,14 @@ SRC :
   
   
 Main.go :
-  classe utilisateur:
+  type utilisateur struct:
      int num_utilisateur = int(7)
      list list_music = {(string titre, string artiste, string album, string genre), (),...}  # liste qui lit le doc txt utilisateur et remplit la liste 
-     string genre  # genre préféré de l'utilisateur, se modifie avec les nouvelles musiques écoutées
+     string genre    # genre préféré de l'utilisateur, se modifie avec les nouvelles musiques écoutées
   
      methodes:
       sort_liste (): # trie la liste en fonction du genre : le genre le plus écouté est en premier etc
        return liste_triee
-   
-
 
  méthodes main :
    interface():
