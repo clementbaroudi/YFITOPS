@@ -1,6 +1,7 @@
 import {
   "fmt"
   "container/list"
+  "math"
 }
 
 type Utilisateur struct{
@@ -18,6 +19,14 @@ type Genre struct { // ce struct sert que pour la recherche du genre fav
   nom string
   nombre int
 }
+
+//methode dans laquelle on demandera tout à l'utilisateur
+func jeu {
+  fmt.Println("Entrez votre numero d'utilisateur")
+}
+  
+  
+
 
 //sert à trouver le genre favori (si le genre favori compte dans la recehrche de la musqiue, on aura besoin de cette methode)
 func find_genre_fav (Utilisateur a) (string) { 
@@ -49,7 +58,7 @@ func find_genre_fav (Utilisateur a) (string) {
 }
 
 
-
+// c'est là qu'il faudra lancer des go routines pour chaque sous branche de chaque relation
 func find_musique ( param ... string, int distance ) (Musique){
   // distance est demandé à l'utilisateur et permet de savoir si il veut découvrir une musique donc on recherche une musique plus loin ou si il veut une musique qu'il est sûr d'aimer
   
